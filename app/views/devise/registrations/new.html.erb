@@ -1,29 +1,107 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <section class="section  login-container">
+    <div class="container ">
+      <div class="columns is-centered mt-6">
+        <div class="column is-one-quarter mt-6">
+          <div class="card mt-6">
+            <header class=" card-header login-header ">
+              <div class="navbar-brand  logo-brand is-unselectable is-centered">
+                <%= link_to 'root_path',  class: "inactiveLink navbar-item logo is-centered" do %>
+                  DEV
+                  <%= simple_format image_tag 'meteor-shower.svg' %>
+                <% end %>
+              </div>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <% if notice %>
+                  <p class="notice"><%= notice %></p>
+                  <p class="alert"><%= alert %></p>
+                <%end %>
+                <div class="field">
+                  <div class="control">
+                    <%= f.email_field :email,
+                                      autofocus: true, autocomplete: "username",
+                                      class: 'input', type: 'text', placeholder: "Nom d'utilisateur" %>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <%= f.email_field :email,
+                                      autofocus: true, autocomplete: "email",
+                                      class: 'input', type: 'text', placeholder: "email" %>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <%= f.password_field :password,
+                                         autocomplete: "new-password",
+                                         class: 'input', type: 'password', placeholder: "Mot de passe" %>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password",
+                                       class: 'input', type: 'password',  placeholder: 'Confirmation mot de passe' %>
+                  </div>
+                </div>
+
+
+                <div class="field">
+                  <div class="control">
+                    <%= f.submit "Inscription", class: 'button is-primary  is-fullwidth mt-5' %>
+                  </div>
+                </div>
+              </div>
+                <hr class="hr-text is-marginless" data-content="OU">
+            </div>
+                <%- if controller_name != 'sessions' %>
+              <footer class="card-footer ">
+                  <%= link_to "Connexion", new_session_path(resource_name), class: 'card-footer-item has-text-weight-bold' %>
+              </footer>
+                <% end %>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<!--
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%#= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%#= f.label :email %><br />
+    <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%#= f.label :password %>
+<%# if @minimum_password_length %>
+    <em>(<%#= @minimum_password_length %> characters minimum)</em>
+    <%# end %><br />
+    <%#= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%#= f.label :password_confirmation %><br />
+    <%#= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%#= f.submit "Sign up" %>
   </div>
-<% end %>
+<%# end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
+
+-->

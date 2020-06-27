@@ -1,0 +1,70 @@
+
+<div class="home-container">
+  <nav class="navbar has-background-white-bis" role="navigation" aria-label="main navigation">
+    <div class="container  ">
+      <div class="navbar-brand  logo-brand">
+        <div>
+        <%= link_to root_path,  class: "navbar-item logo" do %>
+          DEV
+          <%= simple_format image_tag 'meteor-shower.svg' %>
+        <% end %>
+        </div>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+        <div class="navbar-end stroke ">
+
+          <div class="level-item">
+            <div class="field has-addons ">
+              <div class="control has-icons-left ">
+                <input class="input is-rounded" type="text" placeholder="Rechercher">
+              <span class="icon is-small is-left">
+                <i class="fas fa-search"></i>
+              </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <span class="navbar-item">
+              <span class="icon">
+             <%= link_to image_tag('home.svg'), root_path, class: 'icon' %>
+              </span>
+            </span>
+
+            <span class="navbar-item">
+              <span class="icon">
+             <%= link_to image_tag('heart.svg'), root_path, class: 'icon' %>
+              </span>
+            </span>
+
+            <span class="navbar-item">
+              <span class="icon">
+             <%= link_to image_tag('email.svg'), root_path, class: 'icon' %>
+              </span>
+            </span>
+
+            <span class="navbar-item">
+              <span class="icon">
+             <%= link_to image_tag('profile.svg'), new_user_session_path, class: 'icon' %>
+              </span>
+            </span>
+<!--            <div class="buttons">
+              <%# if user_signed_in? %>
+                <%#= link_to 'Logout', destroy_user_session_path, method: :delete,  class: "button login-signin-button is-danger is-outlined " %>
+              <%# else %>
+                <%#= link_to 'Log in', new_user_session_path, class: "button login-signin-button is-primary is-outlined " %>
+                <%#= link_to 'Sign up', new_user_registration_path, class: "button login-signin-button is-link " %>
+              <%# end %>
+            </div>-->
+          </div>
+        </div>
+      </div>
+  </nav>
+</div>
