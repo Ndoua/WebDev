@@ -51,5 +51,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bulma-extensions-rails'
 gem 'bulma-rails', '~> 0.9.0'
 gem 'devise', '~> 4.7', '>= 4.7.2'
+gem 'omniauth', '~> 1.9', '>= 1.9.1'
+gem 'omniauth-facebook'
 gem 'pagy', '~> 3.8', '>= 3.8.2'
 

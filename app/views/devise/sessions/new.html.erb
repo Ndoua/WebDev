@@ -1,81 +1,108 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-<section class="section  login-container">
-  <div class="container ">
-    <div class="columns is-centered mt-6">
-      <div class="column is-one-quarter is-marginless">
-        <%=  image_tag 'login-image.png', class: 'mt-6 is-pulled-right' %>
-      </div>
-      <div class="column is-one-quarter is-marginless">
-        <div class="card mt-6">
-          <header class=" card-header login-header ">
-            <div class="navbar-brand  logo-brand is-unselectable is-centered">
-                <%= link_to 'root_path',  class: "inactiveLink navbar-item logo is-centered" do %>
+  <section class="section  login-container">
+    <div class="container ">
+      <div class="columns is-centered mt-6">
+        <div class="column is-one-quarter is-marginless">
+          <%= image_tag 'login-image.png', class: 'mt-6 is-pulled-right' %>
+        </div>
+        <div class="column is-one-quarter is-marginless">
+
+          <div class="card mt-6">
+            <header class=" card-header login-header ">
+              <div class="navbar-brand  logo-brand is-unselectable is-centered">
+                <%= link_to 'root_path', class: "inactiveLink navbar-item logo is-centered" do %>
                   DEV
                   <%= simple_format image_tag 'meteor-shower.svg' %>
                 <% end %>
-            </div>
-          </header>
-          <div class="card-content">
-            <div class="content">
+              </div>
+            </header>
+            <div class="card-content">
+              <div class="content">
+
                 <%= render "devise/shared/error_messages", resource: resource %>
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-              <div class="field">
-                <div class="control ">
-                 <%= f.email_field :email,
-                                   autofocus: true, autocomplete: "email",
-                                   class: 'input', type: 'text', placeholder: "Nom d'utilisateur" %>
+                <p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
+                <div class="field">
+                  <div class="control ">
+                    <%= f.email_field :email,
+                                      autofocus: true, autocomplete: "email",
+                                      class: 'input', type: 'text', placeholder: "Nom d'utilisateur" %>
+                  </div>
                 </div>
-              </div>
 
-              <div class="field">
-                <div class="control mt-5">
-                  <%= f.password_field :password,
-                                       autocomplete: "current-password",
-                                       class: 'input', type: 'password', placeholder: "Mot de passe" %>
+                <div class="field">
+                  <div class="control mt-5">
+                    <%= f.password_field :password,
+                                         autocomplete: "current-password",
+                                         class: 'input', type: 'password', placeholder: "Mot de passe" %>
+                  </div>
                 </div>
-              </div>
 
 
-              <% if devise_mapping.rememberable? %>
+                <% if devise_mapping.rememberable? %>
 
 
-                <div class="field mt-5">
-                  <input <%= f.check_box :remember_me, class: "is-checkradio",
-                                         id: "exampleCheckbox",
-                                         type: "checkbox", name: "exampleCheckbox", checked: "checked" %>
-                  <label for="exampleCheckbox">Check me</label>
-                </div>
-              <% end %>
+                  <div class="field ">
+                    <input <%= f.check_box :remember_me, class: "is-checkradio ",
+                                           id: "exampleCheckbox",
+                                           type: "checkbox", name: "exampleCheckbox", checked: "checked" %>
+                    <label class="password-forgot" for="exampleCheckbox">Se rappler de moi </label>
+                  </div>
+                <% end %>
 
 
-
-              <div class="field">
-                <div class="control mt-6">
+                <div class="field">
+                  <div class="control mt-4">
                     <%= f.submit "Connexion", class: 'button is-link is-fullwidth mt-5' %>
+                  </div>
                 </div>
+
+                <hr class="hr-text is-marginless" data-content="OU">
+
+                <div class="field">
+                  <div class="media ">
+                    <a href="<%= user_facebook_omniauth_authorize_path %>">
+                  <span class="media-left ">
+                      <%= image_tag 'facebook.svg', class: 'icon facebook-login-image' %>
+                  </span>
+                      <span class="media-content ">
+                      <%= link_to "Se connecter avec Facebook", user_facebook_omniauth_authorize_path,
+                                  class: ' has-text-weight-medium is-marginless' %>
+                  </span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control ">
+                    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                      <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: 'password-forgot ' %>
+                    <% end %>
+                  </div>
+                </div>
+
               </div>
-              <hr class="hr-text is-marginless" data-content="OU">
-              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-                <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: 'password-forgot has-text-weight-medium' %>
-              <% end %>
             </div>
+
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+              <footer class="card-footer">
+                <%= link_to "Inscrivez-vous", new_registration_path(resource_name), class: 'card-footer-item has-text-weight-bold' %>
+              </footer>
+            <% end %>
           </div>
-          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-          <footer class="card-footer">
-            <%= link_to "Inscrivez-vous", new_registration_path(resource_name), class: 'card-footer-item has-text-weight-bold' %>
-          </footer>
-          <% end %>
+
+
         </div>
-
-
       </div>
     </div>
-  </div>
-</section>
+  </section>
 <% end %>
+
+
+
+
 
 <!--  <div class="field">
     <%#= f.label :email %><br />
