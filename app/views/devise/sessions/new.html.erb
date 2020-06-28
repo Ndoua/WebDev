@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+  <%= render "devise/shared/error_messages", resource: resource %>
 
 <section class="section  login-container">
   <div class="container ">
@@ -37,17 +37,16 @@
                                        class: 'input', type: 'password', placeholder: "Mot de passe" %>
                 </div>
               </div>
-              <div class="field">
-                <input class="is-checkradio is-circle" id="exampleCheckboxDefaultCircle" type="checkbox" name="exampleCheckboxDefaultCircle" checked="checked">
-                <label for="exampleCheckboxDefaultCircle">Checkbox</label>
-              </div>
+
 
               <% if devise_mapping.rememberable? %>
-                <div class="field ">
-                  <label class="radio mt-4">
-                  <%= f.check_box :remember_me,type: "checkbox", name: "question" %>
-                    Se rappeler de moi
-                  </label>
+
+
+                <div class="field mt-5">
+                  <input <%= f.check_box :remember_me, class: "is-checkradio",
+                                         id: "exampleCheckbox",
+                                         type: "checkbox", name: "exampleCheckbox", checked: "checked" %>
+                  <label for="exampleCheckbox">Check me</label>
                 </div>
               <% end %>
 

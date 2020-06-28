@@ -1,5 +1,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
+<%= render "devise/shared/error_messages", resource: resource %>
+  <%= toastr_flash %>
   <section class="section  login-container">
     <div class="container ">
       <div class="columns is-centered mt-6">
