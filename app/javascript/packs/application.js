@@ -3,12 +3,13 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+global.toastr = require("toastr")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-global.toastr = require("toastr")
+require('popper.js')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -17,4 +18,6 @@ global.toastr = require("toastr")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
 

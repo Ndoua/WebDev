@@ -1,11 +1,12 @@
 class User < ApplicationRecord
+  has_one_attached :image
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  validates :name, presence: true, length: { minimum: 50 }
+  validates :name, presence: true
 
 
 
@@ -16,7 +17,7 @@ class User < ApplicationRecord
     # Uncomment the section below if you want users to be created if they don't exist
     user ||= User.create(name: data['name'],
                          email: data['email'],
-                         password: Devise.friendly_token[0,20]
+                         password: Devise.friendly_token[0, 20]
         )
     user
   end

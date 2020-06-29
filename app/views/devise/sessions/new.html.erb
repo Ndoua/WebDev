@@ -1,5 +1,6 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <p class="notice"><%= notice %></p>
 
   <section class="section  login-container">
     <div class="container ">
@@ -21,9 +22,7 @@
             <div class="card-content">
               <div class="content">
 
-                <%= render "devise/shared/error_messages", resource: resource %>
-                <p class="notice"><%= notice %></p>
-                <p class="alert"><%= alert %></p>
+
                 <div class="field">
                   <div class="control ">
                     <%= f.email_field :email,

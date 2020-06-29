@@ -1,12 +1,12 @@
-@import "bulma";
 @import 'toastr/toastr';
+@import "bulma";
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 *, :after, :before {
   box-sizing: inherit;
 }
 
 /*---------- Colors-------------*/
-
+$orange: rgba(246, 36, 36, 0.82);
 $fuschia: hsl(171, 100%, 41%);
 $button-bg: $fuschia;
 $button-text-color: #fff;
@@ -29,7 +29,7 @@ $darkslategray: #21253f;
 html body {
   font-family: "Charlie Display", serif;
 }
-h1, h2, h3, p, label, a, li, span, strong,  {
+h1, h2, h3, p, li {
   color: $darkslategray;
 }
 
@@ -185,3 +185,40 @@ div.stroke  a:hover:after {
     }
   }
 //-------------------- END hr style -------------------------//
+//-------------------- MODAL-------------------------//
+
+
+$base-duration: 500ms;
+.mod-content {
+  position: relative;
+  transform: scale(0);
+  transition: transform $base-duration/2 ease;
+  visibility: hidden;
+  z-index: 20;
+
+  .close {
+    color: $blue;
+    position: relative;
+    float: right;
+    font-size: 18px;
+    transition: transform $base-duration ease;
+    z-index: 11;
+
+    &:hover {
+      color: $orange;
+      transform: rotate(540deg);
+    }
+  }
+}
+#mod {
+
+  display: none;
+  &:checked ~ .mod-content {
+    visibility: visible;
+    transform: scale(1.0);
+    transition: transform $base-duration/2 ease;
+    z-index: 999;
+
+  }
+}
+//--------------------END MODAL-------------------------//
