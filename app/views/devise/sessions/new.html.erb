@@ -44,7 +44,7 @@
                 <% if devise_mapping.rememberable? %>
 
 
-                  <div class="field mt-5">
+                  <div class="field ">
                     <input <%= f.check_box :remember_me, class: "switch is-thin",
                                            id: "switchThinColorDefault",
                                            type: "checkbox", name: "switchThinColorDefault", checked: "checked" %>
@@ -63,15 +63,15 @@
 
                 <div class="field">
                   <div class="media ">
-                    <a href="<%= user_facebook_omniauth_authorize_path %>">
-                  <span class="media-left ">
-                      <%= image_tag 'facebook.svg', class: 'icon facebook-login-image' %>
+                    <span class="media-content ">
+                    <%= button_to  user_google_oauth2_omniauth_authorize_path,
+                                   class: 'button is-fullwidth has-text-weight-medium ' do %>
+                      <span class="icon">
+                        <%= image_tag 'google.svg', class: 'icon google-login-image' %>
+                      </span>
+                      <span>Se connecter avec Goggle</span>
+                    <% end %>
                   </span>
-                      <span class="media-content ">
-                      <%= link_to "Se connecter avec Facebook", user_facebook_omniauth_authorize_path,
-                                  class: ' has-text-weight-medium is-marginless' %>
-                  </span>
-                    </a>
                   </div>
                 </div>
 

@@ -5,5 +5,4 @@ Rails.application.routes.draw do
              path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration' },
              controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-
 end

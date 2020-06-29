@@ -53,5 +53,6 @@ gem 'bulma-rails', '~> 0.9.0'
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'omniauth', '~> 1.9', '>= 1.9.1'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'pagy', '~> 3.8', '>= 3.8.2'
 
